@@ -80,7 +80,7 @@ public class MapEditor : EditorWindow
         {
             return;
         }
-
+        GUILayout.Space(5);
         ReInit();
         LayoutScrollview = GUILayout.BeginScrollView(LayoutScrollview, true, true, GUILayout.Width(position.width), GUILayout.Width(position.height));
         for (int i = 0; i < y; i++)
@@ -97,7 +97,7 @@ public class MapEditor : EditorWindow
                     {
                         cubes[i][j][k] = (value == 0) ? 1 : 0;
 
-                        ExportmapToFile.CreaterGameObjectInSecen(Selection.activeGameObject.gameObject.transform, cubes);
+                        EditorTool.CreaterGameObjectInSecen(Selection.activeGameObject.gameObject.transform, cubes);
                     }
                 }
                 GUILayout.EndHorizontal();
@@ -108,7 +108,7 @@ public class MapEditor : EditorWindow
         
         if (GUILayout.Button("保存"))
         {
-            ExportmapToFile.WriterFile(filename, Selection.activeGameObject);
+            EditorTool.WriterFile(filename, Selection.activeGameObject);
         }
         if (GUILayout.Button("清除"))
         {

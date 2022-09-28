@@ -2,7 +2,7 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 
-public class ExportmapToFile
+public class EditorTool
 {
     public static void WriterFile(string fileName, GameObject rootObj)
     {
@@ -33,9 +33,10 @@ public class ExportmapToFile
                     {
                         GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
                         obj.transform.SetParent(trans);
-                        obj.transform.position = new Vector3(x - maplayout[y][z].Length * .5f,
-                            y - maplayout[y].Length * .5f,
-                            z - maplayout[y].Length * .5f) + new Vector3(.5f, .5f, .5f);
+                        obj.transform.position = new Vector3((x + x * 0.05f) - maplayout[y][z].Length * .5f, 
+                            (z + z * 0.05f) - maplayout[y].Length * .5f,
+                            (y + y * 0.05f) - maplayout.Length * .5f) +
+                        new Vector3(.5f, .5f, .5f);
                     }                    
                 }
             }

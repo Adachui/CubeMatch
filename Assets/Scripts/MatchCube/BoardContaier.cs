@@ -18,12 +18,6 @@ public class BoardContaier : MonoBehaviour
     private void InitBoawlList()
     {
         cubeList = new List<cubeInfo>();
-        //var Childs = GameObject.FindGameObjectsWithTag("board");
-        //Boards = new Vector3[Childs.Length];
-        //for (int i = 0; i < Childs.Length; i++)
-        //{
-        //    Boards[i] = Childs[i].transform.localPosition;
-        //}
     }
 
     public void Add(cubeInfo cube)
