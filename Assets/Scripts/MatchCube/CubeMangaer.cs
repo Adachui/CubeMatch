@@ -20,9 +20,8 @@ public class CubeMangaer : MonoBehaviour
 
     private void Awake()
     {
-        Init();
-        StartCoroutine(BegingDisplay2());
-
+        Initialization();
+        BegingDisplay();
     }
 
     private void Initialization()
