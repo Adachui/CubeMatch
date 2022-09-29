@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEditor;
@@ -20,6 +22,8 @@ public class ExportmapToFile
         AssetDatabase.Refresh();
     }
 
+    public static List<GameObject> list = new List<GameObject>();
+
     public static void CreaterGameObjectInSecen(Transform trans,int[][][] maplayout)
     {
 
@@ -36,10 +40,13 @@ public class ExportmapToFile
                         obj.transform.position = new Vector3(x - maplayout[y][z].Length * .5f,
                             y - maplayout[y].Length * .5f,
                             z - maplayout[y].Length * .5f) + new Vector3(.5f, .5f, .5f);
+                        list.Add(obj);
                     }                    
                 }
             }
         }
+        
     }
+    
 
 }
