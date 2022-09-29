@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEditor;
@@ -20,6 +21,8 @@ public class EditorTool
         AssetDatabase.Refresh();
     }
 
+    public static List<GameObject> list = new List<GameObject>();
+
     public static void CreaterGameObjectInSecen(Transform trans,int[][][] maplayout)
     {
 
@@ -29,18 +32,30 @@ public class EditorTool
             {
                 for (int x = 0; x < maplayout[y][z].Length; x++)
                 {
-                    if (maplayout[y][z][x] == 1)
+                    if (maplayout[y][z][x] == 1 && list[(y * maplayout[y].Length * maplayout[y][z].Length) + (z * maplayout[y].Length + maplayout[y][z].Length)] == null) 
                     {
                         GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                        list.Add(obj);
                         obj.transform.SetParent(trans);
                         obj.transform.position = new Vector3((x + x * 0.05f) - maplayout[y][z].Length * .5f, 
                             (z + z * 0.05f) - maplayout[y].Length * .5f,
                             (y + y * 0.05f) - maplayout.Length * .5f) +
                         new Vector3(.5f, .5f, .5f);
-                    }                    
+                    }
+                    else 
+                    {
+                        list[(y * maplayout[y].Length * maplayout[y][z].Length) + (z * maplayout[y].Length + maplayout[y][z].Length)].SetActive(
+                             list[(y * maplayout[y].Length * maplayout[y][z].Length) + (z * maplayout[y].Length + maplayout[y][z].Length)].activeInHierarchy? false : true);
+                    }
                 }
             }
         }
     }
+
+    public static void RefereshObj()
+    {
+
+    }
+
 
 }
