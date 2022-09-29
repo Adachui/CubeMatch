@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Type
+public enum mType
 {
     red,
     yellow,
@@ -15,25 +15,25 @@ public enum Type
 
 public class cubeInfo : MonoBehaviour
 {
-    public Type Type;
+    public mType Type;
     private Color color;
     private Vector3 orangePosition;
     private Transform orangeParent;
 
     private MeshRenderer render;
 
-    public void Init(Type type,Vector3 orange)
+    public void Init(mType type,Vector3 orange)
     {
         this.Type = type;
         switch (Type)
         {
-            case Type.red: render.material.color = Color.red; break;
-            case Type.yellow: render.material.color = Color.yellow; break;
-            case Type.blue: render.material.color = Color.blue; break;
-            case Type.cyan: render.material.color = Color.cyan; break;
-            case Type.gray: render.material.color = Color.gray; break;
-            case Type.magenta: render.material.color = Color.magenta; break;
-            case Type.white: render.material.color = Color.white; break;
+            case mType.red: render.material.color = Color.red; break;
+            case mType.yellow: render.material.color = Color.yellow; break;
+            case mType.blue: render.material.color = Color.blue; break;
+            case mType.cyan: render.material.color = Color.cyan; break;
+            case mType.gray: render.material.color = Color.gray; break;
+            case mType.magenta: render.material.color = Color.magenta; break;
+            case mType.white: render.material.color = Color.white; break;
         }
     }
 

@@ -14,7 +14,7 @@ public class CubeMangaer : MonoBehaviour
     [Header("宽")]
     int width = 3;       //x layout[0][0]
     public float offset = .1f;
-    private Type[] types;
+    private mType[] types;
     private List<cubeInfo> cubes;
     CubeConfige cubeConfig;
 
@@ -26,11 +26,11 @@ public class CubeMangaer : MonoBehaviour
 
     private void Initialization()
     {
-        types = new Type[RandomCount];
+        types = new mType[RandomCount];
         cubes = new List<cubeInfo>(RandomCount * 3);
         for (int i = 0; i < RandomCount; i++)
         {
-            Type r = (Type)Random.Range(0, 7);
+            mType r = (mType)Random.Range(0, 7);
             types[i] = r;
         }
 
@@ -73,7 +73,7 @@ public class CubeMangaer : MonoBehaviour
     {
         var jsonStr = Resources.Load<TextAsset>("Data/data1").text;
         Debug.Log(jsonStr);
-        cubeConfig = JsonMapper.ToObject<CubeConfige>(jsonStr);
+        //cubeConfig = JsonMapper.ToObject<CubeConfige>(jsonStr);
         hight = cubeConfig.layout.Length;
         deep = cubeConfig.layout[0].Length;
         width = cubeConfig.layout[0][0].Length;
